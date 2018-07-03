@@ -1,0 +1,32 @@
+2 lists:
+ 1: Finished Words
+ 2: Unfinished Words
+
+ => If word is typed, remove word from unfinished words and append to finished words
+
+----
+behaviour:
+when editing current word, replace color to green for each correct charackter.
+Append each wrong charackter to all correct ones and make the whole word red, and let the user delete all wrong charackters to continue.
+
+
+2 states as list:
+=> each char is a list item to allow easy moving of chars to display color progressing on charackter level
+user word state:
+  user input that was cleared after last word was finished
+text word state:
+  first element of unfinished words
+
+=> check if next user input char equals the next text word char
+ => True: remove from text word state and add to user word state
+ => False: append to user word state and set wrong flag
+=
+
+-------
+add accuaracy
+use countdown instead of count up
+insert click sound
+Add Q&A at the bottom:
+  - How to improve
+  - Where is this text from
+add fake avg speed

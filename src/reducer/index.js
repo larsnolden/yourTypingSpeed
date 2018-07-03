@@ -1,6 +1,10 @@
 import { combineReducers } from 'redux';
-import TextArea from './TextArea';
+import textArea from './textArea';
+import performance from './performance';
+import modal from './modal';
 
 export default combineReducers({
-  TextArea,
+  textArea,
+  performance,
+  modal,
 });

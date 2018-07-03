@@ -1,5 +1,4 @@
 import React from 'react';
-import TextArea from 'elements/TextArea/containers/TextArea';
 import RootReducer from 'reducer';
 import thunk from 'redux-thunk';
 import {
@@ -8,6 +7,8 @@ import {
 } from 'redux';
 import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
+
+import Test from 'views/Test/containers/Test';
 
 const store = createStore(
   RootReducer,
@@ -18,6 +19,6 @@ const store = createStore(
 
 export default () => (
   <Provider store={store}>
-    <TextArea />
+    <Test />
   </Provider>
 );
