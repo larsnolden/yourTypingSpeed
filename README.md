@@ -4,3 +4,5 @@
 - Redux
 - Styled Components
 - No designer
+
+WIP live version: https://larsnolden.github.io/yourTypingSpeed/
