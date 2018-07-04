@@ -3,6 +3,7 @@ import {
   PERFORMNACE_UPDATE_WORDS_PER_MINUTE,
   PERFORMANCE_UPDATE_ACCURACY,
   PERFORMANCE_DECREMENT_SECONDS_LEFT,
+  PERFORMANCE_UPDATE_SPEED,
   SHOW_FINISH_MODAL,
 } from 'actions/types';
 
@@ -24,6 +25,11 @@ const updateAccuracy = accuracy => ({
   accuracy,
 });
 
+const updateSpeed = speed => ({
+  type: PERFORMANCE_UPDATE_SPEED,
+  speed,
+});
+
 const showFinishModal = show => ({
   type: SHOW_FINISH_MODAL,
   show,
@@ -40,16 +46,26 @@ const handleTimeProgress = () => (dispatch, getState) => {
     ? 0
     : Math.floor(60 / (secondsPassed / wordCount));
 
-  console.log('failed', state.textArea.failedCharCount, 'correct', state.textArea.correctCharCount);
-  //  accuaracy
-  const accuracy = state.textArea.failedCharCount < 1
+  //  accuracy
+  let accuracy = state.textArea.failedCharCount < 1
     ? 100
     : Math.round((1 - state.textArea.failedCharCount / state.textArea.correctCharCount) * 100);
 
-  console.log('handleTimeProgress', wordCount);
-  if (secondsLeft < 1) dispatch(showFinishModal(true));
+  if (accuracy < 0 || NaN) accuracy = 0;
+
+  let speed = 'very fast';
+  if (wordsPerMinute < 20) speed = 'very slow';
+  else if (wordsPerMinute < 30) speed = 'slow';
+  else if (wordsPerMinute < 40) speed = 'average';
+  else if (wordsPerMinute < 60) speed = 'fast';
+
+  if (secondsLeft < 1) {
+    dispatch(showFinishModal(true));
+    return;
+  }
   dispatch(updateWordsPerMinute(wordsPerMinute));
   dispatch(updateAccuracy(accuracy));
+  dispatch(updateSpeed(speed));
   dispatch(incrementSecondsActive);
   dispatch(decrementSecondsLeft);
 };

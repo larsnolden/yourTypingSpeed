@@ -4,7 +4,7 @@ import FinishModalComponent from 'elements/FinishModal/components/FinishModalCom
 const mapStateToProps = state => ({
   accuracy: state.performance.accuracy,
   wordsPerMinute: state.performance.wordsPerMinute,
-  speed: 'average',
+  speed: state.performance.speed,
 });
 
 /*eslint-disable */

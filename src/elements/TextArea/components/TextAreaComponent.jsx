@@ -19,6 +19,7 @@ const StyledTextArea = styled.input`
   background: rgba(0, 0, 0, 0);
   border: none;
   outline: none;
+  color: transparent;
 `;
 
 const TextWrapper = styled.div`

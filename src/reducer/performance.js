@@ -3,6 +3,7 @@ import {
   PERFORMANCE_DECREMENT_SECONDS_LEFT,
   PERFORMNACE_UPDATE_WORDS_PER_MINUTE,
   PERFORMANCE_UPDATE_ACCURACY,
+  PERFORMANCE_UPDATE_SPEED,
 } from 'actions/types';
 
 const initialState = {
@@ -10,6 +11,7 @@ const initialState = {
   secondsLeft: 60,
   wordsPerMinute: 0,
   accuracy: 100,
+  speed: '',
 };
 
 export default function performance(state = initialState, action) {
@@ -36,6 +38,12 @@ export default function performance(state = initialState, action) {
       return ({
         ...state,
         accuracy: action.accuracy,
+      });
+
+    case PERFORMANCE_UPDATE_SPEED:
+      return ({
+        ...state,
+        speed: action.speed,
       });
 
     default:

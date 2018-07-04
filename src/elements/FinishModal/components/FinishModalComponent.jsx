@@ -58,7 +58,7 @@ export default ({
 }) => (
   <Wrapper>
     <Header>
-      Wooah!
+      Finished!
     </Header>
     <NumberWrapper>
       Accuracy

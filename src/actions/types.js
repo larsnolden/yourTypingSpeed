@@ -14,7 +14,7 @@ export const PERFORMANCE_INCREMENT_SECONDS_ACTIVE = 'Perfomance increment second
 export const PERFORMANCE_DECREMENT_SECONDS_LEFT = 'Performance decrement seconds left';
 export const PERFORMNACE_UPDATE_WORDS_PER_MINUTE = 'Performance update words per minute';
 export const PERFORMANCE_UPDATE_ACCURACY = 'Performance update accuracy';
-
+export const PERFORMANCE_UPDATE_SPEED = 'Performance update speed';
 
 // UI
 export const SHOW_FINISH_MODAL = 'show finish test modal';
